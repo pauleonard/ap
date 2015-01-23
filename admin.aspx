@@ -9,7 +9,7 @@
 </head>
 <aspfd:header runat="server"/>
 <h2>Chris' Big Birthday Shindig</h2>
-<p>Thanks! Chris can't wait to see you at the party!</p>
+<p>Admin</p>
 </p>
 <aspfd:footer runat="server"/>
 </body>

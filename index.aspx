@@ -20,17 +20,15 @@ strEmail = Request.QueryString("Email")
 strPhone = Request.QueryString("Phone")
 intPeeps = Request.QueryString("Peeps")
 
-' Email Population Form
+' Populate form from email
 If strInvite = "" Then
     strPerson = Request.QueryString("FName")
     strQuestion = "Is your info correct?"
     
-' Form Validation
+' Form validation, write to database, send email, redirect to thanks.aspx
 ElseIf strInvite > "" Then
     If strLName = "" or strEmail = "" or strPhone = "" Then
         strQuestion = "Please provide all info."
-    
-        Response.End
     
     ' Populate database, send email, redirect to thanks
     Else
@@ -39,7 +37,7 @@ ElseIf strInvite > "" Then
         Dim strMessage as String
           
         'SMTPserver.UseDefaultCredentials = False
-        'SMTPserver.Credentials = New Net.NetworkCredential("pauleonard@gmail.com", "Jere2912")
+        'SMTPserver.Credentials = New Net.NetworkCredential("email@gmail.com", "password")
         'SMTPserver.Port = 587
         'SMTPserver.EnableSsl = True
         'SMTPserver.Host = "smtp.gmail.com"
@@ -64,6 +62,8 @@ ElseIf strInvite > "" Then
             strMessage = strMessage & "not coming to your birthday party. Sorry.<BR><BR>"
         End If
 
+        strMessage = strMessage & "If you would like to see who is coming to your party, follow this link:<BR>"
+        strMessage = strMessage & "<a href=http://www.pauldleonard.com/ap/admin.aspx>http://www.pauldleonard.com/ap/admin.aspx</a><BR><br>"
         strMessage = strMessage & "Have a great day!<br><br>"
     
         Response.Write(strMessage)
@@ -85,6 +85,7 @@ End If
 <html>
 <body>
 <head>
+<title>Chris' Big Birthday Shindig</title>
 <link rel=stylesheet type=text/css href=main.css>
 </head>
 <aspfd:header runat="server"/>
