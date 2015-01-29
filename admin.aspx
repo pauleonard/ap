@@ -1,23 +1,19 @@
-<%@ page language=c# %>
-<%@ register tagprefix=aspfd tagname=header src=header.ascx %>
-<%@ register tagprefix=aspfd tagname=footer src=footer.ascx %>
-<html>
-<head>
-<title>Chris' Big Birthday Shindig</title>
-<link rel=stylesheet type=text/css href=main.css>
-</head>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="admin.aspx.cs" Inherits="admin" %>
+<%@ register tagprefix="aspfd" tagname="header" src="header.ascx" %>
+<%@ register tagprefix="aspfd" tagname="footer" src="footer.ascx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <body>
     <aspfd:header runat="server"/>
-    <form id="form1" runat="server">
-<h2>Chris' Big Birthday Shindig</h2>
-
-        
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="InvitesID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
+    <form id="form2" runat="server">
+    <asp:GridView ID="GridView1" CssClass="Grid" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="InvitesID" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
-                <asp:BoundField DataField="InvitesID" HeaderText="InvitesID" ReadOnly="True" SortExpression="InvitesID" />
-                <asp:BoundField DataField="FName" HeaderText="FName" SortExpression="FName" />
-                <asp:BoundField DataField="LName" HeaderText="LName" SortExpression="LName" />
+                <asp:BoundField DataField="FName" HeaderText="First Name" SortExpression="FName" />
+                <asp:BoundField DataField="LName" HeaderText="Last Name" SortExpression="LName" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
                 <asp:BoundField DataField="Attendees" HeaderText="Attendees" SortExpression="Attendees" />
@@ -43,9 +39,8 @@
                 <asp:Parameter Name="InvitesID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
-
-        
     </form>
+    <br />
     <aspfd:footer runat="server"/>
 </body>
 </html>
