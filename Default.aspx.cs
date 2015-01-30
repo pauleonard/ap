@@ -12,6 +12,11 @@ public partial class Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.FName.Text = Request.QueryString.Get("FName");
+        this.LName.Text = Request.QueryString.Get("LName");
+        this.Email.Text = Request.QueryString.Get("Email");
+        this.Attendees.Text = Request.QueryString.Get("Attendees");
+
         if (IsPostBack)
         {
             // Popluate form variables
